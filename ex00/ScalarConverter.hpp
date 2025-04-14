@@ -5,7 +5,7 @@
 # include <string>
 # include <cstdlib>
 # include <cctype>
-# include <limits>
+# include <climits>
 
 # define ZERO_DECIMAL ".0"
 # define FLOAT_SUFFIX "f"

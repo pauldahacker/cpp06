@@ -69,6 +69,17 @@ static void charLiteralConversion(char c)
     std::cout << std::endl;
 }
 
+static void intConversion(double val, char *endPtr)
+{
+    std::cout << "int: ";
+    if (val >= INT_MIN && val <= INT_MAX && val == val
+        && (endPtr[0] == '\0' || endPtr[0] == 'f'))
+        std::cout << static_cast<int>(val);
+    else
+        std::cout << "Impossible";
+    std::cout << std::endl;
+}
+
 void ScalarConverter::convert(std::string toConvert)
 {
     char    *endPtr;
