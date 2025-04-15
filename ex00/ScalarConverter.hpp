@@ -34,9 +34,11 @@ class ScalarConverter
 // Utils.cpp
 bool	isNan(double d);
 bool	isInf(double d);
-bool	hasDecimals(double d);
 bool	isCharLiteral(std::string toConvert);
 bool	isInt(std::string toConvert);
 bool	isFloat(std::string toConvert);
+void    printChar(char c);
+void    printFloat(float f);
+void    printDouble(double d);
 
 #endif

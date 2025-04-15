@@ -22,6 +22,7 @@ $(NAME): $(OBJ)
 %.o: %.cpp $(HEADER) Makefile
 	@echo "$(BROWN)Compiling   ${BLUE}→   $(ORANGE)$< $(DEF_COLOR)"
 	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "$(BLUE)Flags		$(DEF_COLOR)$(FLAGS)"
 
 clean:
 	@rm -f $(OBJ)

@@ -4,12 +4,12 @@
 https://en.wikipedia.org/wiki/IEEE_754-1985#Representation_of_non-numbers
 https://www.doc.ic.ac.uk/~eedwards/compsys/float/nan.html
 
-In IEEE 754 standard,
-INFINITY is defined as:
+IEEE 754 standard:
+INFINITY:
 	sign = 0 for positive infinity, 1 for negative infinity.
 	biased exponent = all 1 bits.
 	fraction = all 0 bits.
-NANs (Not a Number) are defined as:
+NAN (Not a Number):
 	sign = either 0 or 1.
 	biased exponent = all 1 bits.
 	fraction = anything except all 0 bits (since all 0 bits represents infinity).
@@ -21,10 +21,9 @@ bool	isNan(double d)
 }
 
 /*
-To check for infinity, it makes sense to first check that a value (x) != NaN.
-The IEEE 754 standard has undefined operations, such as inf - inf, 0 / 0, etc.
-Thus, the CPU is designed to detect these cases.
-Knowing this: if x is infinity, then x - x results in a NaN.
+To check for infinity, first check that x != NaN.
+The IEEE 754 has undefined operations, such as inf - inf, 0 / 0, etc.
+-> if x is (+-)infinity, x - x = NaN.
 */
 bool	isInf(double d)
 {
@@ -45,9 +44,8 @@ bool	isInt(std::string toConvert)
 }
 
 /*
-Since floats work with a sign bit, the bounds of floats are
-[-FLT_MAX, FLT_MAX], and not [FLT_MIN, FLT_MAX].
-FLT_MIN = the smallest positive value representable as a float.
+The bounds of floats are [-FLT_MAX, FLT_MAX]
+(FLT_MIN = smallest float value > 0)
 */
 bool	isFloat(std::string toConvert)
 {
@@ -55,4 +53,32 @@ bool	isFloat(std::string toConvert)
 	double tmp = std::strtod(toConvert.c_str(), &endPtr);
 	return (endPtr[0] == 'f'
 		&& (isNan(tmp) || isInf(tmp) || (tmp >= -FLT_MAX && tmp <= FLT_MAX)));
+}
+
+void printChar(char c)
+{
+    if (std::isprint(c))
+        std::cout << "'" << c << "'";
+    else
+        std::cout << "Non displayable";
+    std::cout << std::endl;
+}
+
+void printFloat(float f)
+{
+    std::cout << f;
+    if (f < E_NOTATION_MIN && std::floor(f) == f
+        && !isNan(f) && !isInf(f))
+        std::cout << ZERO_DECIMAL;
+    std::cout << FLOAT_SUFFIX;
+    std::cout << std::endl;
+}
+
+void printDouble(double d)
+{
+    std::cout << d;
+    if (d < E_NOTATION_MIN && std::floor(d) == d
+        && !isNan(d) && !isInf(d))
+        std::cout << ZERO_DECIMAL;
+    std::cout << std::endl;
 }

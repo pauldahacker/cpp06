@@ -11,34 +11,6 @@ const ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
     return (*this);
 }
 
-static void printChar(char c)
-{
-    if (std::isprint(c))
-        std::cout << "'" << c << "'";
-    else
-        std::cout << "Non displayable";
-    std::cout << std::endl;
-}
-
-static void printFloat(float f)
-{
-    std::cout << f;
-    if (f < E_NOTATION_MIN && std::floor(f) == f
-        && !isNan(f) && !isInf(f))
-        std::cout << ZERO_DECIMAL;
-    std::cout << FLOAT_SUFFIX;
-    std::cout << std::endl;
-}
-
-static void printDouble(double d)
-{
-    std::cout << d;
-    if (d < E_NOTATION_MIN && std::floor(d) == d
-        && !isNan(d) && !isInf(d))
-        std::cout << ZERO_DECIMAL;
-    std::cout << std::endl;
-}
-
 static bool isInRange(double val, int type)
 {
     switch (type)
@@ -57,10 +29,6 @@ static bool isInRange(double val, int type)
     return (true);
 }
 
-/*
-This function is only used when we know toConvert is a char literal.
-i.e. toConvert = "'c'", where c is any character.
-*/
 static void charConversion(std::string toConvert)
 {
     char    c = toConvert[1];
@@ -91,6 +59,10 @@ static void intConversion(std::string toConvert)
     printDouble(static_cast<double>(i));
 }
 
+/*
+https://cplusplus.com/reference/cstdlib/strtod/
+std::strtof() was added in C++99
+*/
 static void floatConversion(std::string toConvert)
 {
     double  tmp = std::strtod(toConvert.c_str(), NULL);
@@ -133,19 +105,12 @@ static void doubleConversion(std::string toConvert)
     else
         std::cout << "Impossible" << std::endl;
     std::cout << "double: ";
-    if (endPtr[0] == '\0')
+    if (endPtr[0] == '\0' || endPtr[0] == 'f')
         printDouble(d);
     else
         std::cout << "Impossible" << std::endl;
 }
 
-/*
-First checks if toConvert represents a CHAR LITERAL (i.e. "'a'").
-In this case, we can explicitly convert from CHAR to int, float and double.
-Otherwise, we use strtod to check for the type of the literal passed as a parameter.
-Check this out: https://cplusplus.com/reference/cstdlib/strtod/
-Then we can convert from string to its actual type, and explicitly to the other types. 
-*/
 void ScalarConverter::convert(std::string toConvert)
 {
     bool hasDecimalPoint = toConvert.find('.') != std::string::npos;
