@@ -10,7 +10,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 HEADER = ScalarConverter.hpp
 
-SRC = ScalarConverter.cpp main.cpp
+SRC = Utils.cpp ScalarConverter.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
