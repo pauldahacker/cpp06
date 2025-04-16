@@ -5,13 +5,13 @@ DEF_COLOR = \033[0;39m
 GREEN =	\033[0;92m
 GRAY = \033[38;5;8m
 
-NAME = convert
+NAME = serialize
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-HEADER = ScalarConverter.hpp
+HEADER = Serializer.hpp Data.hpp
 
-SRC = Utils.cpp ScalarConverter.cpp main.cpp
+SRC = Serializer.cpp Data.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

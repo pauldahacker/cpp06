@@ -57,28 +57,28 @@ bool	isFloat(std::string toConvert)
 
 void printChar(char c)
 {
-    if (std::isprint(c))
-        std::cout << "'" << c << "'";
-    else
-        std::cout << "Non displayable";
-    std::cout << std::endl;
+	if (std::isprint(c))
+		std::cout << "'" << c << "'";
+	else
+		std::cout << "Non displayable";
+	std::cout << std::endl;
 }
 
 void printFloat(float f)
 {
-    std::cout << f;
-    if (f < E_NOTATION_MIN && std::floor(f) == f
-        && !isNan(f) && !isInf(f))
-        std::cout << ZERO_DECIMAL;
-    std::cout << FLOAT_SUFFIX;
-    std::cout << std::endl;
+	std::cout << f;
+	if (f < E_NOTATION_MIN && std::floor(f) == f
+		&& !isNan(f) && !isInf(f))
+		std::cout << ZERO_DECIMAL;
+	std::cout << FLOAT_SUFFIX;
+	std::cout << std::endl;
 }
 
 void printDouble(double d)
 {
-    std::cout << d;
-    if (d < E_NOTATION_MIN && std::floor(d) == d
-        && !isNan(d) && !isInf(d))
-        std::cout << ZERO_DECIMAL;
-    std::cout << std::endl;
+	std::cout << d;
+	if (d < E_NOTATION_MIN && std::floor(d) == d
+		&& !isNan(d) && !isInf(d))
+		std::cout << ZERO_DECIMAL;
+	std::cout << std::endl;
 }

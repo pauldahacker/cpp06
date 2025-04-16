@@ -4,7 +4,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
-# include <cctype>
+
 # include <climits>
 # include <cfloat>
 # include <cmath>
@@ -21,14 +21,14 @@
 
 class ScalarConverter
 {
-    public:
-        static void convert(std::string toConvert);
-    private:
-        ScalarConverter(void);
-        ScalarConverter(const ScalarConverter &other);
-        ~ScalarConverter(void);
+	public:
+		static void convert(std::string toConvert);
+	private:
+		ScalarConverter(void);
+		ScalarConverter(const ScalarConverter &other);
+		~ScalarConverter(void);
 
-        const ScalarConverter &operator=(const ScalarConverter &other);
+		const ScalarConverter &operator=(const ScalarConverter &other);
 };
 
 // Utils.cpp
@@ -37,8 +37,8 @@ bool	isInf(double d);
 bool	isCharLiteral(std::string toConvert);
 bool	isInt(std::string toConvert);
 bool	isFloat(std::string toConvert);
-void    printChar(char c);
-void    printFloat(float f);
-void    printDouble(double d);
+void	printChar(char c);
+void	printFloat(float f);
+void	printDouble(double d);
 
 #endif

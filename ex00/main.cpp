@@ -2,20 +2,20 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
-        std::cout << "Incorrect number of arguments" << std::endl;
-    else
-        ScalarConverter::convert(argv[1]);
-    return (0);
+	if (argc != 2)
+		std::cout << "Incorrect number of arguments" << std::endl;
+	else
+		ScalarConverter::convert(argv[1]);
+	return (0);
 }
 /*
 int main(void)
 {
-    std::cout << "basic char" << std::endl;
+	std::cout << "basic char" << std::endl;
 	ScalarConverter::convert("'&'");
 	std::cout << std::endl;
 
-    std::cout << "basic int" << std::endl;
+	std::cout << "basic int" << std::endl;
 	ScalarConverter::convert("0");
 	std::cout << std::endl;
 
@@ -31,7 +31,7 @@ int main(void)
 	ScalarConverter::convert("+2147483647");
 	std::cout << std::endl;
 
-    std::cout << "MIN int" << std::endl;
+	std::cout << "MIN int" << std::endl;
 	ScalarConverter::convert("-2147483648");
 	std::cout << std::endl;
 
@@ -55,11 +55,11 @@ int main(void)
 	ScalarConverter::convert("+inff");
 	std::cout << std::endl;
 
-    std::cout << "-inf" << std::endl;
+	std::cout << "-inf" << std::endl;
 	ScalarConverter::convert("+inf");
 	std::cout << std::endl;
 
-    std::cout << "-inff" << std::endl;
+	std::cout << "-inff" << std::endl;
 	ScalarConverter::convert("+inf");
 	std::cout << std::endl;
 
