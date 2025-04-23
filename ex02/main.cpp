@@ -1,7 +1,11 @@
 #include "Identify.hpp"
 
+/*
+https://cplusplus.com/reference/cstdlib/srand/
+*/
 int main(void)
 {
+	std::srand(time(NULL));
 	for (int i = 0; i < 10; ++i)
 	{
 		Base *tmp = generate();

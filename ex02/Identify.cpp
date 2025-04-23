@@ -7,7 +7,7 @@ Base::~Base(void)
 
 Base	*generate(void)
 {
-	int		random = rand() % 4;
+	int		random = rand() % 3 + 1;
 
 	switch (random)
 	{
